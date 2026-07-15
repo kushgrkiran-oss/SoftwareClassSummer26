@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 @TeleOp(name="PID Tuning", group="Answer Key")
 public class PIDTuning extends LinearOpMode {
     public static double kP = 0, kI = 0, kD = 0;
-    public static double setPoint = 0;
+    public static double setPoint = 0; // target angle in radians
     public static double radiansPerEncoder = 0;
     @Override
     public void runOpMode() throws InterruptedException {
@@ -34,7 +34,8 @@ public class PIDTuning extends LinearOpMode {
             int turretEncoder = turret.getCurrentPosition();
             pid.setPID(kP, kI, kD);
             pid.setSetPoint(setPoint);
-            double power = pid.calculate(turretEncoder);
+            double turretAngle = turretEncoder * radiansPerEncoder;
+            double power = pid.calculate(turretAngle);
             turret.setPower(power);
 
             telemetry.addData("encoder", turretEncoder);

@@ -32,6 +32,8 @@ public class CollectorTestAnswerKey extends LinearOpMode {
             else
                 collector.setIntakeState(CollectorChallengeAnswerKey.IntakeState.OFF);
 
+            collector.update();
+
             // the telemetry.update() should always go in the opMode
             telemetry.update();
         }

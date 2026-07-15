@@ -12,6 +12,7 @@ write a while loop when opModeIsActive()
 - if gamepad1's right trigger is pressed past .1, set the collector to INTAKE
 - else if gamepad1's left trigger is pressed past .1, set the collector to OUTTAKE
 - if neither are true, set the collector to OFF
+- call the collector's update function
 - call telemetry.update() at the end of the loop
 side note: telemetry.update() should always go in the opMode, not in the subsystem class
 
