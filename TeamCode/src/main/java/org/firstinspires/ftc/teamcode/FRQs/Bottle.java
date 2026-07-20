@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.FRQs;
 
 public class Bottle {
     private double amt;
-    private double maxCapacity;
+    private final double maxCapacity;//added final after checking answer key
     public Bottle(double amt) {
         this.amt = amt;
         this.maxCapacity = amt;
